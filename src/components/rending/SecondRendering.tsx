@@ -6,7 +6,7 @@ import RenderingImage2 from '../../../public/images/rending/second_rendering_Ima
 
 const SecondRending = () => {
   return (
-    <div className="bg-[#FDFAF5] h-screen min-w-[375px] max-[600px] flex flex-col items-center pt-[136px]">
+    <div className="bg-[#FDFAF5] min-h-screen min-w-screen max-[600px] flex flex-col items-center pt-[136px]">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -16,12 +16,13 @@ const SecondRending = () => {
           duration: 2,
           y: { duration: 1 },
         }}
+        className="w-full"
       >
-        <div className="flex flex-col items-center text-[18px] font-bold mb-[62px]">
+        <div className="w-full flex flex-col items-center text-[18px] font-bold mb-[62px]">
           <p>사주와 MBTI 궁합은</p>
           <p>과연 비슷할까?</p>
         </div>
-        <div className="relative w-[375px] h-screen overflow-hidden">
+        <div className="w-full relative  h-screen overflow-hidden">
           {/* Image1 */}
           <motion.div
             className="absolute z-20"

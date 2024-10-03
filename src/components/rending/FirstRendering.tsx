@@ -1,14 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import RendingFruit from '../../../public/images/rending/redingFruit.png'
 import Ducck from '../../../public/svgs/dduck.svg'
 import Menu from '../../../public/svgs/menu.svg'
 
 const FirstRending = () => {
   return (
-    <div className="bg-gradient-to-b from-[#F0D9B8] to-[#FDFAF5] h-screen min-w-[375px] max-[600px] pt-[22px] flex flex-col justify-between items-center animate-fade ">
-      <div>
+    <div className="bg-gradient-to-b from-[#F0D9B8] to-[#FDFAF5] min-h-screen w-screen max-w-[600px] pt-[22px] flex flex-col justify-between items-center animate-fade ">
+      <div className="w-full flex flex-col justify-center items-center">
         <div className=" flex w-full justify-between px-[15px] animate-fade">
           <Ducck />
           <Menu />
@@ -27,12 +26,6 @@ const FirstRending = () => {
           height={341} // 세로 크기 설정
         />
       </div>
-      <Link
-        href="/input"
-        className="w-[335px] h-[56px] bg-Dark-Brown text-white hover:bg-brown rounded-[16px] flex items-center justify-center mb-[44px] font-pretendard animate-fade-up"
-      >
-        내 사주 알아보기
-      </Link>
     </div>
   )
 }

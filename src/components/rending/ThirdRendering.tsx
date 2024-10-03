@@ -40,7 +40,7 @@ const ThirdRendering = () => {
   }, [images.length])
 
   return (
-    <div className="bg-[#FDFAF5] min-h-screen h-screen min-w-[375px] max-w-[600px] flex flex-col items-center animate-fade pt-[179px]">
+    <div className="bg-[#FDFAF5] min-h-screen min-h-screen min-w-[375px] max-w-[600px] flex flex-col items-center animate-fade pt-[179px]">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
