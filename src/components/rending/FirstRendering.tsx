@@ -9,11 +9,11 @@ const FirstRending = () => {
   return (
     <div className="bg-gradient-to-b from-[#F0D9B8] to-[#FDFAF5] h-screen min-w-[375px] max-[600px] pt-[22px] flex flex-col justify-between items-center animate-fade ">
       <div>
-        <div className=" flex w-full justify-between px-[16px] animate-fade">
+        <div className=" flex w-full justify-between px-[15px] animate-fade">
           <Ducck />
           <Menu />
         </div>
-        <div className="mt-[74px] flex flex-col items-center text-Dark-Brown font-bold animate-fade-up">
+        <div className="mt-[66px] flex flex-col items-center text-Dark-Brown font-bold animate-fade-up">
           <p className="text-[18px] font-sans">
             사주와 성격으로 보는 우리 궁합
           </p>
@@ -22,7 +22,9 @@ const FirstRending = () => {
         <Image
           src={RendingFruit}
           alt="과일바구니 사진"
-          className="mt-[89px] animate-fade-up"
+          className="mt-[52px] animate-fade-up"
+          width={375} // 가로 크기 설정
+          height={341} // 세로 크기 설정
         />
       </div>
       <Link

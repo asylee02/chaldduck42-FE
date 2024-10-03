@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import Image1 from '../../../public/images/rending/third/fruit1.png'
 import Image2 from '../../../public/images/rending/third/fruit2.png'
 import Image3 from '../../../public/images/rending/third/fruit3.png'
@@ -39,25 +40,36 @@ const ThirdRendering = () => {
   }, [images.length])
 
   return (
-    <div className="bg-[#FDFAF5] h-screen min-w-[375px] max-[600px] flex flex-col  items-center animate-fade pt-[179px] overflow-hidden">
-      <div className="flex flex-col items-center text-[18px] font-bold mb-[62px] animate-fade-up">
-        <p>먼저 과일 찹쌀떡으로</p>
-        <p>타고난 너의 기질인 사주를 알려줄게</p>
-      </div>
-      <div className="w-full h-full relative animate-fade-up">
-        <Image
-          src={images[currentImage]}
-          alt="과일 사진"
-          style={{ width: 256, height: 213 }}
-          className="absolute right-1/2 translate-x-1/2"
-        />
-        <Image
-          src={Bowl}
-          alt="그릇"
-          style={{ width: 320, height: 95 }}
-          className="absolute right-1/2 translate-x-1/2 top-36"
-        />
-      </div>
+    <div className="bg-[#FDFAF5] min-h-screen h-screen min-w-[375px] max-w-[600px] flex flex-col items-center animate-fade pt-[179px]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{
+          ease: 'easeInOut',
+          duration: 2,
+          y: { duration: 1 },
+        }}
+      >
+        <div className="flex flex-col items-center text-[18px] font-bold mb-[62px] animate-fade-up">
+          <p>먼저 과일 찹쌀떡으로</p>
+          <p>타고난 너의 기질인 사주를 알려줄게</p>
+        </div>
+        <div className="w-full h-full relative animate-fade-up">
+          <Image
+            src={images[currentImage]}
+            alt="과일 사진"
+            style={{ width: 256, height: 213 }}
+            className="absolute right-1/2 translate-x-1/2"
+          />
+          <Image
+            src={Bowl}
+            alt="그릇"
+            style={{ width: 320, height: 95 }}
+            className="absolute right-1/2 translate-x-1/2 top-36"
+          />
+        </div>
+      </motion.div>
     </div>
   )
 }

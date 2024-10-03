@@ -1,18 +1,18 @@
 'use client'
-import { Suspense, useState, useEffect } from 'react'
-import React from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import useObserver from '@/hooks/useObserver'
 import Image from 'next/image'
 import RelationshipTag from '@/components/list/RelationshipTag'
 import NoCompatibilityMessage from '@/components/list/NoCompatibilityMessage'
 import axios from 'axios'
 
-//import RelationshipTag from './layout'
-interface HomeProps {
-  reqData: object // 서버에서 받아온 데이터를 여기에 저장
-}
+// import RelationshipTag from './layout'
 
-interface listResp {
+// interface HomeProps {
+//   reqData: object // 서버에서 받아온 데이터를 여기에 저장
+// }
+
+interface ListResp {
   userId: string
   nickname: string
   birth: string
@@ -22,8 +22,8 @@ interface listResp {
   mbtiImg: string
 }
 
-const Home: React.FC<HomeProps> = () => {
-  const [reqData, setReqData] = useState<listResp[] | undefined>(undefined) // reqData는 배열이거나 undefined일 수 있음
+const Home: React.FC<ListResp> = () => {
+  const [reqData, setReqData] = useState<ListResp[] | undefined>(undefined) // reqData는 배열이거나 undefined일 수 있음
 
   const observer1 = useObserver()
   const observer2 = useObserver()
@@ -40,7 +40,7 @@ const Home: React.FC<HomeProps> = () => {
     try {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_BASE_URL}/friend/list/${process.env.DUMMY_USR_HASH}`,
-        //`http://3.35.133.186:8080/api/api/friend/list/b3D6dDe7SQ`,
+        // `http://3.35.133.186:8080/api/api/friend/list/b3D6dDe7SQ`,
       )
       setReqData(response.data)
     } catch (err) {
@@ -141,11 +141,12 @@ const Home: React.FC<HomeProps> = () => {
           {reqData && reqData.length > 0 ? (
             reqData.map((friend, index) => (
               <RelationshipTag
-                key={friend.userId} // 고유한 키 값
-                friendNm={friend.nickname} // 친구 닉네임
-                type={relationships[index % relationships.length].type} // 관계 타입 순환
-                children={relationships[index % relationships.length].text} // 관계 텍스트 순환
-              />
+                key={friend.userId}
+                friendNm={friend.nickname}
+                type={relationships[index % relationships.length].type}
+              >
+                {relationships[index % relationships.length].text}
+              </RelationshipTag>
             ))
           ) : (
             <NoCompatibilityMessage />
@@ -164,7 +165,7 @@ const Home: React.FC<HomeProps> = () => {
               친구와의 궁합 결과를 더 오래 기억하고 싶다면
             </div>
             <div className="text-[13px] text-gray-500">
-              '자세히'를 눌러 이미지로 저장해보세요
+              &apos;자세히&apos;를 눌러 이미지로 저장해보세요
             </div>
           </div>
         </div>
